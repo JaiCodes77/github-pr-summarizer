@@ -1,5 +1,3 @@
-"""services/github.py — GitHub REST API interaction helpers."""
-
 import os
 import requests
 
