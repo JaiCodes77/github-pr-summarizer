@@ -1,5 +1,3 @@
-"""services/llm.py — LLM API calls for summarizing PR diffs."""
-
 import os
 from openai import OpenAI
 
