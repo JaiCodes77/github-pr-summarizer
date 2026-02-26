@@ -6,14 +6,13 @@ GITHUB_API_BASE = "https://api.github.com"
 
 
 def _get_headers() -> dict:
-    """
-    Build the HTTP headers required for authenticated GitHub API requests.
-
-    Reads GITHUB_TOKEN from the environment and returns a dict containing:
-    - Authorization: Bearer <token>
-    - Accept: application/vnd.github.v3+json
-    """
-    pass
+    token = os.getenv("GITHUB_TOKEN")
+    if not token:
+        raise ValueError("GITHUB_TOKEN not found in environment variables")
+    return {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github.v3+json",
+    }
 
 
 def get_pr_diff(repo: str, pr_number: int) -> str:
